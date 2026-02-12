@@ -10,7 +10,6 @@ return { -- Highlight, edit, and navigate code
       'json',
       'java',
       'cpp',
-      'c_sharp',      
       'dart'
     },
     -- Autoinstall languages that are not installed

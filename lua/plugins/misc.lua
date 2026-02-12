@@ -14,4 +14,12 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = { signs = false },
   },
+  {
+    -- Hints keybinds
+    'folke/which-key.nvim',
+  },
+  {
+    -- Detect tabstop and shiftwidth automatically
+    'tpope/vim-sleuth',
+  },
 }

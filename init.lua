@@ -4,8 +4,6 @@ require "core.keymaps"
   
 -- CUSTOM PLUGINS
 require "plugins.colortheme" 
-require "plugins.cblsynhigh" -- In dieser Reihenfolge, überschreibt colortheme
---require "plugins.iq_commands"
  
 -- LAZY PLUGIN LOADER
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -27,11 +25,7 @@ require ('lazy').setup({
     require "plugins.gitsigns",
     require "plugins.indent-signs",
     require "plugins.misc",
+    require "plugins.trouble",
     require "plugins.lsp",
     require "plugins.autocomplete",
-    require "plugins.trouble"
 })
-
--- BOOT COMMANDS
---vim.cmd.let "cobol_legacy_code = 1"
---vim.cmd "Neotree"
