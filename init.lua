@@ -28,4 +28,5 @@ require ('lazy').setup({
     require "plugins.trouble",
     require "plugins.lsp",
     require "plugins.autocomplete",
+    require "plugins.debugger"
 })
