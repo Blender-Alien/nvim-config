@@ -1,3 +1,16 @@
+local function border(hl_name)
+  return {
+    { "┌", hl_name },
+    { "─", hl_name },
+    { "┐", hl_name },
+    { "│", hl_name },
+    { "┘", hl_name },
+    { "─", hl_name },
+    { "└", hl_name },
+    { "│", hl_name },
+  }
+end
+
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
@@ -25,9 +38,8 @@ return {
         },
       },
     },
-
     -- Allows extra capabilities provided by nvim-cmp
-    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-nvim-lsp'
   },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
@@ -196,6 +208,7 @@ return {
       cfg.capabilities = vim.tbl_deep_extend('force', {}, capabilities, cfg.capabilities or {})
 
       vim.lsp.config(server, cfg)
+      vim.o.winborder = 'single'
       vim.lsp.enable(server)
     end
   end,

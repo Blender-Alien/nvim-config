@@ -33,5 +33,9 @@ vim.cmd.hi "LineNrAbove guifg=Black"
 vim.cmd.hi "LineNrBelow guifg=Black"
 vim.cmd.hi "Cursor guibg=black guifg=black"
 
+vim.cmd.hi "FloatBorder guifg=black"
+vim.cmd.hi "CmpMenuBorder guifg=black"
+vim.cmd.hi "CmpMenuSel guibg=#f4f6fc"
+
 -- CUSTOM PLUGINS
 --require "plugins.colortheme"
