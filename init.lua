@@ -1,10 +1,7 @@
 -- CORE MODULES
 require "core.options"
 require "core.keymaps"
-  
--- CUSTOM PLUGINS
-require "plugins.colortheme" 
- 
+
 -- LAZY PLUGIN LOADER
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -15,18 +12,26 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	end
 end
 vim.opt.rtp:prepend(lazypath)
-  
+
 require ('lazy').setup({
-    require "plugins.treesitter",
+--  require "plugins.treesitter",
     require "plugins.neotree",
-    require "plugins.bufferline",
+--  require "plugins.bufferline",
     require "plugins.telescope",
     require "plugins.lualine",
     require "plugins.gitsigns",
     require "plugins.indent-signs",
     require "plugins.misc",
     require "plugins.trouble",
-    require "plugins.lsp",
     require "plugins.autocomplete",
-    require "plugins.debugger"
+    require "plugins.lsp"
 })
+
+vim.cmd.colorscheme("github-monochrome-light")
+
+vim.cmd.hi "LineNrAbove guifg=Black"
+vim.cmd.hi "LineNrBelow guifg=Black"
+vim.cmd.hi "Cursor guibg=black guifg=black"
+
+-- CUSTOM PLUGINS
+--require "plugins.colortheme"
