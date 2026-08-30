@@ -14,7 +14,7 @@ vim.o.relativenumber = true
 
 vim.diagnostic.config({
     virtual_text = true,
-    signs = true,
+    signs = false,
     underline = true
 })
 

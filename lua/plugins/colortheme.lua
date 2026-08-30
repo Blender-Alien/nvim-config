@@ -139,21 +139,27 @@ end
 
 
 return {
-    vim.cmd.colorscheme "default",
+--  vim.cmd.colorscheme "default",
 
---  vim.cmd.hi "Normal guibg=#151925",
-    vim.cmd.hi "Normal guibg=none",
---  vim.cmd.hi ("Comment guifg=#fa789b")
+    vim.api.nvim_set_hl(0, "Normal", { fg = "black", bg = "white" }),
+    vim.api.nvim_set_hl(0, "NonText", { fg = "black", bg = "white" }),
+
+    vim.api.nvim_set_hl(0, "CursorLine", { bg = "gray" }),
+    vim.api.nvim_set_hl(0, "LineNr", { fg = "black", bg = "white" }),
+    vim.api.nvim_set_hl(0, "Folded", { fg = "black", bg = "white" }),
+    vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "black", bg = "white" }),
+
+
 
 --  vim.cmd.hi "ColorColumn guibg=Black",
 --  vim.cmd.hi "ColorColumn guibg=#ec17ef",
-    vim.cmd.hi "ColorColumn guibg=#111716",
+--  vim.cmd.hi "ColorColumn guibg=#111716",
 
-    vim.cmd.autocmd "FileType cpp set colorcolumn=100",
-    vim.cmd.autocmd "FileType lua set colorcolumn=80",
-    vim.cmd.autocmd "FileType cs set colorcolumn=80",
-    vim.cmd.autocmd "FileType python set colorcolumn=80",
+--  vim.cmd.autocmd "FileType cpp set colorcolumn=100",
+--  vim.cmd.autocmd "FileType lua set colorcolumn=80",
+--  vim.cmd.autocmd "FileType cs set colorcolumn=80",
+--  vim.cmd.autocmd "FileType python set colorcolumn=80",
 
-    set_highlights()
+--  set_highlights()
     
 }

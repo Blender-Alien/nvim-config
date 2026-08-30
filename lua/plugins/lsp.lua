@@ -25,9 +25,8 @@ return {
         },
       },
     },
-
     -- Allows extra capabilities provided by nvim-cmp
-    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-nvim-lsp'
   },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
@@ -109,7 +108,7 @@ return {
         -- code, if the language server you are using supports them
         --if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
         --map('<leader>th', function()
-        vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
+        --vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
         --end, '[T]oggle Inlay [H]ints')
         --end
       end,
@@ -130,7 +129,6 @@ return {
     -- - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
     -- - settings (table): Override the default settings passed when initializing the server.
     local servers = {
-      clangd = {},
       pylsp = {
         settings = {
           pylsp = {
@@ -173,7 +171,6 @@ return {
     -- Ensure the servers and tools above are installed
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
-      'stylua', -- Used to format Lua code
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -185,6 +182,20 @@ return {
       cfg.capabilities = vim.tbl_deep_extend('force', {}, capabilities, cfg.capabilities or {})
 
       vim.lsp.config(server, cfg)
+      vim.lsp.enable(server)
+    end
+    local servers2 = {
+        clangd = {}
+    }
+    for server, cfg in pairs(servers2) do
+      -- For each LSP server (cfg), we merge:
+      -- 1. A fresh empty table (to avoid mutating capabilities globally)
+      -- 2. Your capabilities object with Neovim + cmp features
+      -- 3. Any server-specific cfg.capabilities if defined in `servers`
+      cfg.capabilities = vim.tbl_deep_extend('force', {}, capabilities, cfg.capabilities or {})
+
+      vim.lsp.config(server, cfg)
+      vim.o.winborder = 'single'
       vim.lsp.enable(server)
     end
   end,
